@@ -1,8 +1,36 @@
-﻿
+﻿@using EntityLayer.Concrete
+@model List<Rezervation>
+
 @{
     ViewData["Title"] = "MyOldRezervation";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 
-<h1>Geçmiş Rezervasyonları</h1>
+<h1>Geçmiş Rezervasyonlar</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Lokasyon</th>
+            <th>Kişi Sayısı</th>
+            <th>Rezervasyon Tarihi</th>
+            <th> Durum</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ReservationID</td>
+                <td>@item.Destination.CityName</td>  @* bunu getirmek için arka plande bazı kodlar yazdım*@
+                <td>@item.PersonCount</td>
+                <td>@item.ReservationDate</td>
+                <td>@item.ReservationStatus</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
 
