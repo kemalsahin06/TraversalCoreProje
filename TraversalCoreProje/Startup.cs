@@ -83,6 +83,14 @@ namespace TraversalCoreProje
                   pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
                 );
             });
+            // bunu areas kullandýgým için burda tanýmladým fonksiyon kendi verdi yani
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                  name: "areas",
+                  pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                );
+            });
         }
 	}
 }
