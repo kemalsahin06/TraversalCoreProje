@@ -1,10 +1,16 @@
+using BusinessLayer.Abstract;
+using BusinessLayer.Concrete;
+using BusinessLayer.Container;
+using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.CodeAnalysis.FlowAnalysis;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -32,7 +38,11 @@ namespace TraversalCoreProje
 			services.AddDbContext<Context>();
 			services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>().AddErrorDescriber<CustomIdentityValidation>().AddEntityFrameworkStores<Context>();
 
-			services.AddMvc(config =>
+			// bu sinýfý businis layer katmanýnda tanýmladým
+			services.ContainerDependencies();  //BasicBlockKind yam-nint nasýl kullanmýsým falan diye
+
+            services.AddControllersWithViews();
+            services.AddMvc(config =>
 			{
 				var policy = new AuthorizationPolicyBuilder()
 				.RequireAuthenticatedUser()
@@ -44,7 +54,7 @@ namespace TraversalCoreProje
 
 			/// burda biiti
 
-			services.AddControllersWithViews();
+			
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,6 +70,9 @@ namespace TraversalCoreProje
 				// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
 				app.UseHsts();
 			}
+
+			app.UseStatusCodePagesWithReExecute("/ErrorPage/Error404","? code={0}"); // bu tanýmsýz bir sayfaya gidecegi zaman
+
 			app.UseHttpsRedirection();
 			app.UseStaticFiles();
 			app.UseAuthentication(); // bunu da biraya yazýyoruz yanlýz bunlarýn sýrasý önemli
