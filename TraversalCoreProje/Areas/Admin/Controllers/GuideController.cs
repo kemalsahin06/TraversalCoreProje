@@ -9,6 +9,7 @@ using ValidationResult = FluentValidation.Results.ValidationResult;
 namespace TraversalCoreProje.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Route("Admin/Guide")] // burda aşşagıdaki yönlendirme işleminde bunu yazmadan diger sayfalara geçiş saglamadı
     public class GuideController : Controller
     {
         private readonly IGuideService _guideService;
@@ -17,19 +18,21 @@ namespace TraversalCoreProje.Areas.Admin.Controllers
         {
             _guideService = guideService;
         }
-
+        [Route("")]
+        [Route("Index")]
         public IActionResult Index()
         {
             var values = _guideService.TGetList();
             return View(values);
         }
-
+        [Route("AddGuide")]
         [HttpGet]
         public IActionResult AddGuide()
         {
             return View();
         }
 
+        [Route("AddGuide")]
         [HttpPost]
         public IActionResult AddGuide(Guide guide)
         {
@@ -53,6 +56,8 @@ namespace TraversalCoreProje.Areas.Admin.Controllers
             }
         }
 
+
+        [Route("EditGuide")]
         [HttpGet]
         public ActionResult EditGuide(int id)
         {
@@ -60,21 +65,29 @@ namespace TraversalCoreProje.Areas.Admin.Controllers
             return View(values);
         }
 
+        [Route("EditGuide")]
         [HttpPost]
         public ActionResult EditGuide(Guide guide)
         {
+           
             _guideService.TUpdate(guide);
             return RedirectToAction("Index");
         }
 
+
+        [Route("ChangeToTrue/{id}")] // burdada yönlendirm için kullandım önemliyoksa çalışmıyo
         public IActionResult ChangeToTrue(int id)
         {
-            return RedirectToAction("Index");
+            _guideService.TChangeToTrueByGuide(id);
+            return RedirectToAction("Index","Guide",new {area="Admin"});
         }
 
+
+        [Route("ChangeToFalse/{id}")] // bunlar onemli yönlendirme için
         public IActionResult ChangeToFalse(int id)
         {
-            return RedirectToAction("Index");
+            _guideService.TChangeToFalseByGuide(id);
+            return RedirectToAction("Index", "Guide", new { area = "Admin" }); // yönlendirme için önemli
         }
     }
 }

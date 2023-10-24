@@ -1,4 +1,5 @@
-﻿using ClosedXML.Excel;
+﻿using BusinessLayer.Abstract;
+using ClosedXML.Excel;
 using DataAccessLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using OfficeOpenXml;
@@ -11,6 +12,13 @@ namespace TraversalCoreProje.Controllers
 {
     public class ExcelController : Controller
     {
+        private readonly IExcelService _excelService;
+
+        public ExcelController(IExcelService excelService)
+        {
+            _excelService = excelService;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -35,22 +43,32 @@ namespace TraversalCoreProje.Controllers
 
         public IActionResult StaticExcelReport()
         {
-            ExcelPackage excel = new ExcelPackage();
-            var workSheed = excel.Workbook.Worksheets.Add("Sayfa1");
-            workSheed.Cells[1, 1].Value = "Rota";
-            workSheed.Cells[1, 2].Value = "Rehber";
-            workSheed.Cells[1, 3].Value = "Kontenjan";
 
-            workSheed.Cells[2, 1].Value = "Gürcistan Batum Turu";
-            workSheed.Cells[2, 2].Value = "Kemal Şahin";
-            workSheed.Cells[2, 3].Value = "40";
 
-            workSheed.Cells[3, 1].Value = "Akdeniz Turu";
-            workSheed.Cells[3, 2].Value = "Laz Kopat";
-            workSheed.Cells[3, 3].Value = "37";
+            return File(_excelService.ExcelList(DestinationList()), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","YeniExcel.xlsx");
 
-            var bytes = excel.GetAsByteArray();
-            return File(bytes, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "dosya2.xlsl");
+
+
+
+            // alttaki baska bir kullanım ama yinede çalışıyo
+
+
+            //ExcelPackage excel = new ExcelPackage();
+            //var workSheed = excel.Workbook.Worksheets.Add("Sayfa1");
+            //workSheed.Cells[1, 1].Value = "Rota";
+            //workSheed.Cells[1, 2].Value = "Rehber";
+            //workSheed.Cells[1, 3].Value = "Kontenjan";
+
+            //workSheed.Cells[2, 1].Value = "Gürcistan Batum Turu";
+            //workSheed.Cells[2, 2].Value = "Kemal Şahin";
+            //workSheed.Cells[2, 3].Value = "40";
+
+            //workSheed.Cells[3, 1].Value = "Akdeniz Turu";
+            //workSheed.Cells[3, 2].Value = "Laz Kopat";
+            //workSheed.Cells[3, 3].Value = "37";
+
+            //var bytes = excel.GetAsByteArray();
+            //return File(bytes, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "dosya2.xlsl");
         }
 
 
@@ -91,5 +109,9 @@ namespace TraversalCoreProje.Controllers
             }
 
         }
+
+
+      
+
     }
 }
