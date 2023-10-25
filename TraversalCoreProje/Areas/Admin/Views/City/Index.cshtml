@@ -10,11 +10,46 @@
 <br />
 <br />
 <button type="button" id="btngetlist" class="btn btn-outline-info">Şehir Listesi</button>
+<button type="button" id="btngetById" class="btn btn-outline-primary">Şehir Getir</button>
+<button type="button" id="btnAddCity" class="btn btn-outline-warning">Şehir Ekle</button>
+<button type="button" id="btnDeleteCity" class="btn btn-outline-danger">Şehir Listesi</button>
+<button type="button" id="btnupdateCity" class="btn btn-outline-success">Şehir Listesi</button>
 <br />
+<br />
+br />
 <br />
 <div id="cityList">
     buraya şehir listesi olacak
 </div>
+<br />
+<br />
+<div  >
+    <input type="text" id="textid" placeholder=" Şehir Id Degerini giriniz ." class="form-control" />
+</div>
+
+
+<br />
+<br />
+
+
+<div id="destinationListByID">
+
+</div>
+
+
+<br />
+<br />
+
+<div>
+    <input type="text" id="txtcity" placeholder="Şehir Adını giriniz ." class="form-control" />
+    <input type="text" id="txtdaynight" placeholder="Gün Gece Sayısı ." class="form-control" />
+    <input type="text" id="txtprice" placeholder="Fiyat." class="form-control" />
+    <input type="text" id="txtcapacity" placeholder="Konaklayacak kişi sayısı ." class="form-control" />
+</div>
+
+<br />
+<br />
+
 
 <script>
     $("#btngetlist").click(function () {
@@ -22,17 +57,17 @@
             contentType: "application/json",
             dataType: "json",
             type: "GET",
-            url :"/Admin/City/CityList/",
+            url: "/Admin/City/CityList/",
 
 
             success: function (func) {
                 let w = $.parseJSON(func);
                 console.log(w);
 
-                let tablehtml = "<table class='table table-bordered'> <tr> <th>Şehir ID </th> <th>Sehir Adı </th> <th> Ülke Adı</th> </tr>";
+                let tablehtml = "<table class='table table-bordered'> <tr> <th>Şehir Adı </th> <th>Gün Gece </th> <th> Fiyat</th> </tr>";
 
                 $.each(w, (Index, value) => {
-                    tablehtml += `<tr> <td> ${value.CityID} </td>  <td>${value.CityName} </td>  <td>${value.CityCountry}</td>  </tr>`;
+                    tablehtml += `<tr> <td> ${value.CityName} </td>  <td>${value.DayNight} </td>  <td>${value.Price}</td>  </tr>`;
                 });
                 tablehtml += "</table>";
 
@@ -42,5 +77,53 @@
             }
         });
     });
+
+
+    $("#btnAddCity").click(function () {
+
+
+        let cityValues = {
+            CityName: $("#txtcity").val(),
+            DayNight: $("#txtdaynight").val(),
+            Price: $("#txtprice").val(),
+            Capacity: $("#txtcapacity").val()
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "/Admin/City/AddCityDestination/",
+            data: cityValues,
+            success: function (func) {
+                let result = $.parseJSON(fun);
+                alert("Sehir -Rota basarılı bir şekilde eklendi ");
+            }
+        });
+    });
+
+
+    $("#btngetById").click(x => {
+        let id = $("#textid").val();
+
+        $.ajax({
+            contentType: "application/json",
+            dataType: "json",
+            type: "GET",
+            url: "/Admin/City/GetByID/",
+            data: { DestinationID: id },
+
+            success: function (fun2) {
+                let result = $.parseJSON(fun2);
+                console.log(result);
+                
+                let htmlstr = `<table class='table table-bordered'>  <tr> <th>Şehir Adı</th>  <th> Gün Gece</th>    <th>Fiyat</th>  </tr>   <tr>  <tr> <td> ${result.CityName} </td>  <td>${result.DayNight} </td>  <td>${result.Price}</td>  </tr> </table>`;
+
+                
+                $("#destinationListByID").html(htmlstr);
+            
+            }
+        });
+
+    });
+
 </script>
 
