@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+<h2>Şehir Ülke İşlemleri</h2>
+<br />
+<br />
+<button type="button" id="btngetlist" class="btn btn-outline-info">Şehir Listesi</button>
+<br />
+<br />
+<div id="cityList">
+    buraya şehir listesi olacak
+</div>
+
+<script>
+    $("#btngetlist").click(function () {
+        $.ajax({
+            contentType: "application/json",
+            dataType: "json",
+            type: "GET",
+            url :"/Admin/City/CityList/",
+
+
+            success: function (func) {
+                let w = $.parseJSON(func);
+                console.log(w);
+
+                let tablehtml = "<table class='table table-bordered'> <tr> <th>Şehir ID </th> <th>Sehir Adı </th> <th> Ülke Adı</th> </tr>";
+
+                $.each(w, (Index, value) => {
+                    tablehtml += `<tr> <td> ${value.CityID} </td>  <td>${value.CityName} </td>  <td>${value.CityCountry}</td>  </tr>`;
+                });
+                tablehtml += "</table>";
+
+                // burası gonderilecek yer
+                $("#cityList").html(tablehtml)
+
+            }
+        });
+    });
+</script>
+
