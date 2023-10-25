@@ -12,8 +12,8 @@
 <button type="button" id="btngetlist" class="btn btn-outline-info">Şehir Listesi</button>
 <button type="button" id="btngetById" class="btn btn-outline-primary">Şehir Getir</button>
 <button type="button" id="btnAddCity" class="btn btn-outline-warning">Şehir Ekle</button>
-<button type="button" id="btnDeleteCity" class="btn btn-outline-danger">Şehir Listesi</button>
-<button type="button" id="btnupdateCity" class="btn btn-outline-success">Şehir Listesi</button>
+<button type="button" id="btnDeleteCity" class="btn btn-outline-danger">Şehir sil </button>
+<button type="button" id="btnupdateCity" class="btn btn-outline-success">Şehir Güncelle</button>
 <br />
 <br />
 br />
@@ -23,8 +23,20 @@ br />
 </div>
 <br />
 <br />
-<div  >
+<div>
     <input type="text" id="textid" placeholder=" Şehir Id Degerini giriniz ." class="form-control" />
+</div>
+<br />
+
+<div>
+    <input type="text" id="textsil" placeholder=" Silinecek Id Degerini giriniz ." class="form-control" />
+</div>
+
+<br />
+<div>
+    <input type="text" id="textguncelleId" placeholder=" Güncellenecek Id Degerini giriniz ." class="form-control" />
+    <input type="text" id="textcityname" placeholder=" Güncellenecek şehir Degerini giriniz ." class="form-control" />
+    <input type="text" id="textgungece" placeholder=" Güncellenecek gün gece Degerini giriniz ." class="form-control" />
 </div>
 
 
@@ -33,7 +45,6 @@ br />
 
 
 <div id="destinationListByID">
-
 </div>
 
 
@@ -114,15 +125,53 @@ br />
             success: function (fun2) {
                 let result = $.parseJSON(fun2);
                 console.log(result);
-                
+
                 let htmlstr = `<table class='table table-bordered'>  <tr> <th>Şehir Adı</th>  <th> Gün Gece</th>    <th>Fiyat</th>  </tr>   <tr>  <tr> <td> ${result.CityName} </td>  <td>${result.DayNight} </td>  <td>${result.Price}</td>  </tr> </table>`;
 
-                
+
                 $("#destinationListByID").html(htmlstr);
-            
+
             }
         });
 
+    });
+
+
+
+    $("#btnDeleteCity").click(x => {
+
+        let id = $("#textsil").val();
+
+        $.ajax({
+            url: "/Admin/City/DeleteCity/" + id,
+            type : "POST",
+            contentType: "application/json",
+            dataType: "json",
+            success : function (fun3) {
+                loadData();
+            }
+        });
+     });
+
+
+
+    $("#btnupdateCity").click(function (){
+        let values ={
+            DestinationID: $("#textguncelleId").val(),
+            CityName: $("#textcityname").val(),
+            DayNight: $("#textgungece").val()
+
+        };
+
+        $.ajax({
+                
+            type: "POST",
+            url: "/Admin/City/UpdateCity/",
+            data : values,
+            success : function(fun4){
+                alert("güncelleme işlemi yapıldı")
+            }
+        });
     });
 
 </script>
