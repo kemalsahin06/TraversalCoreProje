@@ -1,10 +1,14 @@
 using BusinessLayer.Abstract;
 using BusinessLayer.Concrete;
 using BusinessLayer.Container;
+using BusinessLayer.ValidationRules;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using DTOLayer.DTOs.AnnouncementDTOs;
 using EntityLayer.Concrete;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -54,6 +58,14 @@ namespace TraversalCoreProje
 
 			// bu sinýfý businis layer katmanýnda tanýmladým
 			services.ContainerDependencies();  //BasicBlockKind yam-nint nasýl kullanmýsým falan diye
+
+
+			services.AddAutoMapper(typeof(Startup)); // bunu da ben ekledim bu map lemek içir
+
+			services.AddTransient<IValidator<AnnouncementAddDTOs>, AnnouncementValidator>(); // bunlarý dto s için dahil ediyorum
+
+			services.AddControllersWithViews().AddFluentValidation(); // bunu da usteki ile birlikte ekledim
+
 
             services.AddControllersWithViews();
             services.AddMvc(config =>
