@@ -33,6 +33,10 @@ namespace TraversalCoreProje
 		{
 
 			services.AddScoped<GetAllDestinationQueryHandler>(); // bu iþlemide startap tarafýnda yapmmamýz lazým CQRS ÝÇÝC
+			services.AddScoped<GetDestinationByIDQueryHandler>(); // bu iþlemide startap tarafýnda yapmmamýz lazým CQRS ÝÇÝC
+			services.AddScoped<CreateDestinationCommandHandler>(); // bu iþlemide startap tarafýnda yapmmamýz lazým CQRS ÝÇÝC
+			services.AddScoped<RemoveDestinationCommentHandle>(); // bu iþlemide startap tarafýnda yapmmamýz lazým CQRS ÝÇÝC
+			services.AddScoped<UpdateDestinationCommentHandle>(); // bu iþlemide startap tarafýnda yapmmamýz lazým CQRS ÝÇÝC
 
 			services.AddLogging(x =>
 			{

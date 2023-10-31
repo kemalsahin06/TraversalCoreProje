@@ -22,6 +22,7 @@ namespace TraversalCoreProje.Cors.Handlers.DestinationHandlers
                 DestinationId = values.DestinationID,
                 City = values.CityName,
                 DayNight = values.DayNight,
+                Price = values.Price,
             };
         }
         
