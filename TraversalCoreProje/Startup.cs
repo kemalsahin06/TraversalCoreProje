@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System.IO;
+using TraversalCoreProje.Cors.Handlers.DestinationHandlers;
 using TraversalCoreProje.Models;
 
 namespace TraversalCoreProje
@@ -30,6 +31,8 @@ namespace TraversalCoreProje
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
+
+			services.AddScoped<GetAllDestinationQueryHandler>(); // bu iþlemide startap tarafýnda yapmmamýz lazým CQRS ÝÇÝC
 
 			services.AddLogging(x =>
 			{

@@ -37,6 +37,7 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Member\Data\" />
+    <Folder Include="Cors\Commands\" />
     <Folder Include="wwwroot\PdfReport\" />
     <Folder Include="wwwroot\UserImages\" />
   </ItemGroup>
