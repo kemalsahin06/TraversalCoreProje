@@ -33,12 +33,16 @@ namespace EntityLayer.Concrete
 
         public int Capacity { get; set; }
 
-        //public DateTime BlogDate { get; set; }
+        public DateTime BlogDate { get; set; }
 
         public bool Status { get; set; }
 
         public List<Comment> Comments { get; set; }
 
         public List<Rezervation> Rezervations { get; set; }
+
+
+        public int? GuideID { get; set; }
+        public Guide Guide { get; set; }
     }
 }

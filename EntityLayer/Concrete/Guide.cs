@@ -24,5 +24,6 @@ namespace EntityLayer.Concrete
 
         public bool Status { get; set; }
 
+        public List<Destination> Destinations { get; set; }
     }
 }
