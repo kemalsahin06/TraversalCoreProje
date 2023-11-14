@@ -91,6 +91,11 @@ namespace TraversalCoreProje
 
 			/// burda biiti
 
+			services.ConfigureApplicationCookie(options =>  // oatanti olmadan giriþ yapmýssa buraya yonlendir demek
+
+			{
+				options.LogoutPath = "/Login/SingIn/";
+			});
 			
 		}
 
@@ -137,14 +142,7 @@ namespace TraversalCoreProje
                   pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
                 );
             });
-            // bunu areas kullandýgým için burda tanýmladým fonksiyon kendi verdi yani
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(
-                  name: "areas",
-                  pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-                );
-            });
+
         }
 	}
 }

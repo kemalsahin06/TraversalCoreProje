@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using SıgnalIRApii.DAL;
+using SıgnalIRApii.Hubs;
 using SıgnalIRApii.Model;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,14 @@ namespace SıgnalIRApii
         {
             // alttaki adresi ben yazdım yapılandırma için veri tabanı oluşturmak için
             services.AddScoped<VisitorService>();
+            services.AddSignalR();
+
+            services.AddCors(options => options.AddPolicy("CorsPolicy",
+                builder =>
+                {
+                    builder.AllowAnyHeader().AllowAnyMethod().SetIsOriginAllowed((host) => true).AllowCredentials();
+                }));
+
             services.AddEntityFrameworkNpgsql().AddDbContext<Context>(ops =>
             {
                 ops.UseNpgsql(Configuration.GetConnectionString("DefaultConnection-benyazdım"));
@@ -58,6 +67,7 @@ namespace SıgnalIRApii
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<VisitorHub>("/VisitorHub");
             });
         }
     }

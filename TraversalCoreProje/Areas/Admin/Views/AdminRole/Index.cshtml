@@ -1,0 +1,34 @@
+﻿@model List<AppRole>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+    int count = 0;
+}
+
+<h1>Role Listesi</h1>
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Role Adı</th>
+        <th>Rolü Sil</th>
+        <th>Rolü Güncelle</th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        count++;
+
+        <tr>
+            <td>@count</td>
+            <td>@item.Name</td>
+            <td><a href="/Admin/AdminRole/DeleteRole/@item.Id" class="btn btn-outline-danger">Rolü Sil</a></td>
+            <td><a href="/Admin/AdminRole/UpdateRole/@item.Id" class="btn btn-outline-success">Rolü Güncelle</a></td>
+        </tr>
+    }
+
+</table>
+
+<a href="/Admin/AdminRole/CreateRole/" class="btn btn-outline-primary">Yeni Rol Girişi</a>
