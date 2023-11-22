@@ -11,5 +11,6 @@ namespace DataAccessLayer.Abstract
     {
 
         public Destination GetDestinationWithGuide(int id); // tek deger çagırdıgımız için boyle yapmadık
+        public List<Destination> GetLast4Destinations();
     }
 }
