@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -87,7 +88,19 @@ namespace TraversalCoreProje
 				config.Filters.Add(new AuthorizeFilter(policy));
 			}
 			);
-			services.AddMvc();
+
+
+			services.AddLocalization(opt =>
+			{
+
+				opt.ResourcesPath = "Resources";
+			}
+			);
+
+
+
+
+			services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix).AddDataAnnotationsLocalization(); // burda dil destegini ekledim
 
 			/// burda biiti
 
@@ -100,7 +113,7 @@ namespace TraversalCoreProje
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-		public void Configure(IApplicationBuilder app, IWebHostEnvironment env,ILoggerFactory loggerFactory)
+		public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
 		{
 
 			var path = Directory.GetCurrentDirectory();
@@ -117,7 +130,7 @@ namespace TraversalCoreProje
 				app.UseHsts();
 			}
 
-			app.UseStatusCodePagesWithReExecute("/ErrorPage/Error404","? code={0}"); // bu tanýmsýz bir sayfaya gidecegi zaman
+			app.UseStatusCodePagesWithReExecute("/ErrorPage/Error404", "? code={0}"); // bu tanýmsýz bir sayfaya gidecegi zaman
 
 			app.UseHttpsRedirection();
 			app.UseStaticFiles();
@@ -125,6 +138,17 @@ namespace TraversalCoreProje
 			app.UseRouting();
 
 			app.UseAuthorization();
+
+
+
+			var suppertesCulteres = new[] { "en", "fr", "es", "gr", "tr","de"};
+			var localizationOptions = new RequestLocalizationOptions().SetDefaultCulture(suppertesCulteres[4]).AddSupportedCultures(suppertesCulteres).AddSupportedUICultures(suppertesCulteres);
+			
+			app.UseRequestLocalization(localizationOptions);
+			// yukarýdada dil destegini ile yaptým
+
+
+
 
 			app.UseEndpoints(endpoints =>
 			{

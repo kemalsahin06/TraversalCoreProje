@@ -43,6 +43,28 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Views\Shared\Components\AdminDashboardHeader\Default.cshtml" />
+    <None Include="Views\Shared\Components\Cart2Statistic\Default.cshtml" />
+    <None Include="Views\Shared\Components\MemberLayoutHead\Default.cshtml" />
+    <None Include="Views\Shared\Components\_AdminGuideList\Default.cshtml" />
+    <None Include="Views\Shared\Components\_Carts1Statistic\Default.cshtml" />
+    <None Include="Views\Shared\Components\_CommentList\Default.cshtml" />
+    <None Include="Views\Shared\Components\_DashboardBanner\Default.cshtml" />
+    <None Include="Views\Shared\Components\_destinationStatistic2\Default.cshtml" />
+    <None Include="Views\Shared\Components\_DestinationStatistic\Default.cshtml" />
+    <None Include="Views\Shared\Components\_Feature\Default.cshtml" />
+    <None Include="Views\Shared\Components\_GuideDetails\Default.cshtml" />
+    <None Include="Views\Shared\Components\_GuideList\Default.cshtml" />
+    <None Include="Views\Shared\Components\_LastDestinations\Default.cshtml" />
+    <None Include="Views\Shared\Components\_MemberStatic\Default.cshtml" />
+    <None Include="Views\Shared\Components\_PlatformSetting\Default.cshtml" />
+    <None Include="Views\Shared\Components\_PopularDestinations\Default.cshtml" />
+    <None Include="Views\Shared\Components\_ProfileInformation\Default.cshtml" />
+    <None Include="Views\Shared\Components\_SliderPartial\Default.cshtml" />
+    <None Include="Views\Shared\Components\_Statistics\Default.cshtml" />
+    <None Include="Views\Shared\Components\_SubAbout\Default.cshtml" />
+    <None Include="Views\Shared\Components\_TestiMonial\Default.cshtml" />
+    <None Include="Views\Shared\Components\_TotalRevennune\Default.cshtml" />
     <None Include="wwwroot\sneat-1.0.0\.github\workflows\handle-new-issue-comment.yml" />
     <None Include="wwwroot\sneat-1.0.0\.github\workflows\handle-new-issue.yml" />
     <None Include="wwwroot\sneat-1.0.0\.github\workflows\issue-staler.yml" />
