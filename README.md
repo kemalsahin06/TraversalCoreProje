@@ -20,15 +20,15 @@
 - CQRS Design Pattern
 - Mediatr
 - SignalR
-  #Teknik Özellikler
+# Teknik Özellikler
 - N Katmanlı Mimari Yapısı
--Repository Tasarım Deseni
--CQRS Tasarım Deseni
--PagedList ile sayfalama yapısı
--Fluent Validation ile doğrulama
--Identity ile kullanıcı ve rol işlemleri
-#Sitenin Öne Çıkan Özellikleri
--Üye Paneli ve Admin Paneli
+- Repository Tasarım Deseni
+- CQRS Tasarım Deseni
+- PagedList ile sayfalama yapısı
+- Fluent Validation ile doğrulama
+- Identity ile kullanıcı ve rol işlemleri
+# Sitenin Öne Çıkan Özellikleri
+- Üye Paneli ve Admin Paneli
 - Identity kütüphanesi ile giriş yapma özelliği.
 - Rolleme ve yetkilendirme ile erişim kısıtlamaları
 - FluentValidation kütüphanesi yardımıyla doğrulamalar
@@ -68,38 +68,48 @@
 Ana Sayfa
 ![image](https://github.com/user-attachments/assets/124d3e1f-dcac-4803-b448-252c026566d9)
 ![image](https://github.com/user-attachments/assets/3dd629db-8349-4913-b005-c27969c2d6c0)
-![image](https://github.com/user-attachments/assets/810e7054-b906-492f-b752-32b255d29895)
+![image](https://github.com/user-attachments/assets/6a678948-2c03-4382-a2b1-efaf8223ae6f)
+
 
 Footer
 ![image](https://github.com/user-attachments/assets/9024fbbb-13e4-4eb5-9099-4210e7fc40fa)
 
 
 Tur Rotaları Sayfası - Giriş/Çıkış/Kayıt Ol Menüsü
-Tur Rotaları
+![image](https://github.com/user-attachments/assets/de6a6e58-0c95-4e43-ae7c-372a90feb4aa)
+
 
 Tur'lara Yorum Yapma
-Tur Rotaları2
+![image](https://github.com/user-attachments/assets/d8be4f2b-0ea7-4ebf-88be-6aa32d20130d)
+
 
 Rehberler Sayfası
-Guides
+![image](https://github.com/user-attachments/assets/ea99854b-28c1-49f7-b002-a37c99291873)
+
 
 Hakkımızda Sayfası
-İletişim
+![image](https://github.com/user-attachments/assets/2239191a-17c2-4ced-bc9e-6971e250099d)
+
 
 İletişim Sayfası
-İletişim
+![image](https://github.com/user-attachments/assets/27127eb9-58f9-47a5-af82-626acb6ebc5b)
+
 
 Kayıt Ol Ekranı
-Kayıt Ol
+![image](https://github.com/user-attachments/assets/6e3e8586-5353-44fb-ba4e-b8320aee3ae0)
+
 
 Giriş Yap Ekranı
-Giriş Yap
+![image](https://github.com/user-attachments/assets/9c926032-237e-4f76-9b57-36afc5da9345)
+
 
 Üye Paneli - Dashboard
-Member1
+![image](https://github.com/user-attachments/assets/fc5e1dd9-2ee9-4d01-94dc-3442bd2029cc)
+
 
 Üye Paneli - Profil Bilgileri Güncelleme
-Member2
+![image](https://github.com/user-attachments/assets/d119431e-b2cf-497c-8cf7-8003ec76a3b1)
+
 
 Üye Paneli - Yeni Rezervasyon Oluşturma
 Member2
