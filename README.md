@@ -112,28 +112,37 @@ Giriş Yap Ekranı
 
 
 Üye Paneli - Yeni Rezervasyon Oluşturma
-Member2
+![image](https://github.com/user-attachments/assets/0f59b16d-b05a-4637-8bdc-e3ad725de448)
+
 
 Üye Paneli - Oluşturulan Son 4 Tur
-Member3
+![image](https://github.com/user-attachments/assets/33a11581-5efd-4d5f-bdb8-e5da1c53fd3b)
+
 
 Üye Paneli - Dil Desteği Menüsü
-Dil seçildiğinde sidebar(sol menü) dile göre değişkenlik gösteriyor. Member4
+![image](https://github.com/user-attachments/assets/86237887-9fac-4f47-a85a-baf1c45fcb5b)
+
 
 Admin Paneli - Dashboard
-Admin1
+![image](https://github.com/user-attachments/assets/119dbfd9-02d8-4280-93a6-e421fce6037e)
+
 
 Admin Paneli - Duyuru Oluşturma Sayfası
-Admin2
+![image](https://github.com/user-attachments/assets/673f28d0-9eb8-4e31-975c-fd0595a17b10)
+
 
 Admin Paneli - Oluşturulan Rezervasyonlar Sayfası
-Admin6
+![image](https://github.com/user-attachments/assets/3a40314d-9eed-463b-93a5-da7d5f73fa40)
+
 
 Admin Paneli - Gelen Mesajlar Sayfası
-Admin3
+![image](https://github.com/user-attachments/assets/7ef44ad3-6c36-4310-b215-d116146dabf8)
+
 
 Admin Paneli - Mail Gönderme Sayfası
-Admin4
+![image](https://github.com/user-attachments/assets/d2f7cf9f-283d-49ae-ae5a-9df8605ed020)
+
 
 Admin Paneli - Rolleme İşlemleri
-Admin5
+![image](https://github.com/user-attachments/assets/469a8073-7498-4a20-ae7d-4e0306c0dfff)
+
