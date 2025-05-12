@@ -22,58 +22,57 @@
 - SignalR
   #Teknik Özellikler
 - N Katmanlı Mimari Yapısı
-Repository Tasarım Deseni
-CQRS Tasarım Deseni
-PagedList ile sayfalama yapısı
-Fluent Validation ile doğrulama
-Identity ile kullanıcı ve rol işlemleri
-Sitenin Öne Çıkan Özellikleri
-Üye Paneli ve Admin Paneli
-Identity kütüphanesi ile giriş yapma özelliği.
-Rolleme ve yetkilendirme ile erişim kısıtlamaları
-FluentValidation kütüphanesi yardımıyla doğrulamalar
-AJAX ile CRUD işlemler
-MailKit ile Mesajlaşma özelliği
-PagedList ile sayfalama yapısı
-Ana Sayfadaki turları görüntüleme & rezervasyon yapma
-Panellerde ilgili CRUD işlemleri
-Panellerde Profil ayarları sayfaları
-Şifremi Unuttum özelliği
-Kullanıcılara roller atama, silme ve güncelleme
-Üye panelinde çoklu dil desteği
-Arama işlemleri
-Admin Paneli Özellikleri
-İstatistikleri görme
-Profil düzenleme işlemleri
-Tüm turlar üzerinde CRUD işlemleri
-Rezervasyonları görüntüleme ve takip etme
-Site üzerindeki tüm yorumları görüntüleme
-Kullanıcıları görüntüleme
-Rehberler üzerinde CRUD işlemleri ve Aktif Pasif yapma özelliği
-Mesajlaşma sistemi
-Raporlamalar
-Mail gönderme
-AJAX ile tur üzerinde CRUD işlemler
-Apiler
-Site üzerindeki verilerde CRUD işlemleri
-Rolleme yapma
-Üye Paneli Özellikleri
-İstatistikleri görme
-Profil düzenleme işlemleri
-Aktif rota-gezileri görme ve rezervasyon oluşturma
-Onay bekleyen rezervasyonları görüntüleme
-Geçmiş rezervasyonları görüntüleme
-Menülerde çoklu dil desteği
-Sitenin Görselleri
+-Repository Tasarım Deseni
+-CQRS Tasarım Deseni
+-PagedList ile sayfalama yapısı
+-Fluent Validation ile doğrulama
+-Identity ile kullanıcı ve rol işlemleri
+#Sitenin Öne Çıkan Özellikleri
+-Üye Paneli ve Admin Paneli
+- Identity kütüphanesi ile giriş yapma özelliği.
+- Rolleme ve yetkilendirme ile erişim kısıtlamaları
+- FluentValidation kütüphanesi yardımıyla doğrulamalar
+- AJAX ile CRUD işlemler
+- MailKit ile Mesajlaşma özelliği
+- PagedList ile sayfalama yapısı
+- Ana Sayfadaki turları görüntüleme & rezervasyon yapma
+- Panellerde ilgili CRUD işlemleri
+- Panellerde Profil ayarları sayfaları
+- Şifremi Unuttum özelliği
+- Kullanıcılara roller atama, silme ve güncelleme
+- Üye panelinde çoklu dil desteği
+- Arama işlemleri
+# Admin Paneli Özellikleri
+- İstatistikleri görme
+- Profil düzenleme işlemleri
+- Tüm turlar üzerinde CRUD işlemleri
+- Rezervasyonları görüntüleme ve takip etme
+- Site üzerindeki tüm yorumları görüntüleme
+- Kullanıcıları görüntüleme
+- Rehberler üzerinde CRUD işlemleri ve Aktif Pasif yapma özelliği
+- Mesajlaşma sistemi
+- Raporlamalar
+- Mail gönderme
+- AJAX ile tur üzerinde CRUD işlemler
+- Apiler
+- Site üzerindeki verilerde CRUD işlemleri
+- Rolleme yapma
+# Üye Paneli Özellikleri
+- İstatistikleri görme
+- Profil düzenleme işlemleri
+- Aktif rota-gezileri görme ve rezervasyon oluşturma
+- Onay bekleyen rezervasyonları görüntüleme
+- Geçmiş rezervasyonları görüntüleme
+- Menülerde çoklu dil desteği
+# Sitenin Görselleri
 Ana Sayfa
-Ana ekran
-
-Ana ekran2
-
-Ana ekran3
+![image](https://github.com/user-attachments/assets/124d3e1f-dcac-4803-b448-252c026566d9)
+![image](https://github.com/user-attachments/assets/3dd629db-8349-4913-b005-c27969c2d6c0)
+![image](https://github.com/user-attachments/assets/810e7054-b906-492f-b752-32b255d29895)
 
 Footer
-Ana ekran3
+![image](https://github.com/user-attachments/assets/9024fbbb-13e4-4eb5-9099-4210e7fc40fa)
+
 
 Tur Rotaları Sayfası - Giriş/Çıkış/Kayıt Ol Menüsü
 Tur Rotaları
